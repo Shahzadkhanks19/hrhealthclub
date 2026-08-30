@@ -1,16 +1,7 @@
 # HR Health Club
 
-HR Health Club public website and gym management platform.
+Next.js website and management platform for HR Health Club, Jodhpur.
 
-## Development
+## Code structure rule
 
-```bash
-npm install
-npm run dev
-```
-
-## Quality checks
-
-```bash
-npm run check
-```
+Keep route files small. Split every substantial page into section components, keep page composition readable, and extract shared site-wide UI into reusable components. Tailwind CSS is the default styling approach; avoid inline and external custom CSS unless a requirement cannot reasonably be implemented with Tailwind.
