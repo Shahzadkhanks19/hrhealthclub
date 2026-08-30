@@ -10,7 +10,7 @@ export function HeroSection() {
           src={heroImage}
           alt="Premium strength training area inside a modern gym"
           fill
-          priority
+          loading="eager"
           className="object-cover object-center"
           sizes="68vw"
         />
@@ -48,7 +48,7 @@ export function HeroSection() {
           src={heroImage}
           alt="HR Health Club gym interior"
           fill
-          priority
+          loading="eager"
           className="object-cover"
           sizes="(max-width: 1023px) 100vw, 1px"
         />
