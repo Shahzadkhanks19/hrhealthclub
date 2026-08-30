@@ -44,7 +44,14 @@ export function HeroSection() {
       </div>
 
       <div className="relative h-64 lg:hidden">
-        <Image src={heroImage} alt="HR Health Club gym interior" fill priority className="object-cover" sizes="100vw" />
+        <Image
+          src={heroImage}
+          alt="HR Health Club gym interior"
+          fill
+          priority
+          className="object-cover"
+          sizes="(max-width: 1023px) 100vw, 1px"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
       </div>
     </section>
