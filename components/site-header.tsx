@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { CalendarDays, Clock3, MapPin, Menu, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
-const navItems = [["HOME", "/"], ["ABOUT", "/about"], ["PROGRAMS", "/programs"], ["COACHES", "/#coaches"], ["GALLERY", "/#gallery"], ["MEMBERSHIP", "/#membership"], ["TESTIMONIALS", "/#testimonials"], ["CONTACT", "/#contact"]] as const;
+const navItems = [["HOME", "/"], ["ABOUT", "/about"], ["PROGRAMS", "/programs"], ["COACHES", "/coaches"], ["GALLERY", "/#gallery"], ["MEMBERSHIP", "/#membership"], ["TESTIMONIALS", "/#testimonials"], ["CONTACT", "/#contact"]] as const;
 
 export function SiteHeader() {
   const pathname = usePathname();
