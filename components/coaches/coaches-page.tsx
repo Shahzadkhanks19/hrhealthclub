@@ -8,6 +8,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { coachProfiles } from "./coach-data";
 
+const heroFeatures = [
+  [Users, "Expert Coaches"],
+  [Award, "Certified Professionals"],
+  [Trophy, "Result Driven"],
+  [Target, "Personalized Attention"],
+] as const;
+
 const benefits = [
   [Target, "Goal-Oriented", "Every plan is tailored to your personal goals."],
   [Trophy, "Result Driven", "Progressive methods built around measurable improvement."],
@@ -31,7 +38,7 @@ export function CoachesPage() {
             <div className="mt-6 h-1 w-12 bg-white/80" />
             <p className="mt-6 max-w-md text-lg leading-8 text-white/80">Learn from the best. Train with the best. Be your best.</p>
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-              {[[Users,"Expert Coaches"],[Award,"Certified Professionals"],[Trophy,"Result Driven"],[Target,"Personalized Attention"]].map(([Icon,label]) => <div key={label as string} className="border-l border-white/20 pl-4"><Icon size={23} className="text-white" /><span className="mt-2 block font-[family-name:var(--font-display)] text-xs font-bold uppercase leading-5 text-white/75">{label as string}</span></div>)}
+              {heroFeatures.map(([Icon, label]) => <div key={label} className="border-l border-white/20 pl-4"><Icon size={23} className="text-white" /><span className="mt-2 block font-[family-name:var(--font-display)] text-xs font-bold uppercase leading-5 text-white/75">{label}</span></div>)}
             </div>
           </Reveal>
           <Reveal delay={0.08} className="relative min-h-[390px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
