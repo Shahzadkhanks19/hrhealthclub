@@ -8,7 +8,9 @@ export function SiteFooter() {
     <footer id="contact" className="bg-[#450004] text-white">
       <div className="mx-auto grid w-[min(1280px,calc(100%-2rem))] gap-8 py-10 md:grid-cols-2 xl:grid-cols-4">
         <div>
-          <Image src="/images/hr-logo.svg" width={190} height={58} alt="HR Health Club logo" className="h-14 w-auto brightness-0 invert" />
+          <div className="inline-flex rounded-lg bg-white px-4 py-3">
+            <Image src="/images/brand-logo.svg" width={167} height={48} alt="HR Health Club logo" className="h-11 w-auto" />
+          </div>
           <p className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold uppercase leading-7">BUILT BY DISCIPLINE,<br />LED BY COACHES.</p>
           <div className="mt-4 flex gap-4 text-[#E2D6D6]"><Instagram size={19} /><Facebook size={19} /><Youtube size={20} /></div>
         </div>
