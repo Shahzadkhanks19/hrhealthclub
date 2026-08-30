@@ -41,7 +41,18 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/15 bg-[#5A0006] py-4 text-center text-xs text-white/70">© 2026 HR Health Club. All Rights Reserved.</div>
+
+      <div className="border-t border-white/15 bg-[#5A0006]">
+        <div className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-center justify-between gap-2 py-4 text-center text-xs text-white/70 sm:flex-row sm:text-left">
+          <span>© 2026 HR Health Club. All Rights Reserved.</span>
+          <span>
+            Designed &amp; Developed by{" "}
+            <a href="https://builtbyshahzad.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-white transition hover:text-[#E2D6D6] hover:underline">
+              Shahzad Khan
+            </a>
+          </span>
+        </div>
+      </div>
     </footer>
   );
 }
