@@ -1,25 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
-const oswald = Oswald({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const display = Oswald({ subsets: ["latin"], variable: "--font-display" });
+const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
   title: "HR Health Club | Premium Gym in Jodhpur",
-  description:
-    "HR Health Club Jodhpur — premium coaching, modern equipment, real transformations and a strong fitness community.",
-  icons: {
-    icon: "/images/favicon.png",
-    shortcut: "/images/favicon.png",
-    apple: "/images/favicon.png",
-  },
+  description: "HR Health Club Jodhpur — premium coaching, modern equipment and real transformations.",
+  icons: { icon: "/images/favicon.svg" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${oswald.variable} bg-white font-[family-name:var(--font-body)] text-[#111111] antialiased`}>
+    <html lang="en">
+      <body className={`${display.variable} ${body.variable} bg-white font-[family-name:var(--font-body)] text-[#111111] antialiased`}>
         {children}
       </body>
     </html>
