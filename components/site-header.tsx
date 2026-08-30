@@ -52,28 +52,18 @@ export function SiteHeader() {
 
           <nav className="hidden items-center gap-5 xl:flex" aria-label="Primary navigation">
             {navItems.map(([label, href], index) => (
-              <a
-                key={label}
-                href={href}
-                className={`font-[family-name:var(--font-display)] text-sm font-semibold tracking-wide transition hover:text-[#7A0008] ${index === 0 ? "text-[#7A0008]" : "text-[#111111]"}`}
-              >
+              <a key={label} href={href} className={`font-[family-name:var(--font-display)] text-sm font-semibold tracking-wide transition hover:text-[#7A0008] ${index === 0 ? "text-[#7A0008]" : "text-[#111111]"}`}>
                 {label}
               </a>
             ))}
           </nav>
 
-          <a href="#membership" className="hidden rounded-md bg-[#7A0008] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white transition hover:bg-[#450004] lg:inline-flex">
-            JOIN HR FAMILY
-          </a>
+          <a href="#membership" className="hidden rounded-md bg-[#7A0008] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white transition hover:bg-[#450004] lg:inline-flex">JOIN HR FAMILY</a>
 
           <details className="relative xl:hidden">
-            <summary className="flex cursor-pointer list-none items-center justify-center rounded-md border border-[#E2D6D6] p-2 text-[#7A0008]" aria-label="Open menu">
-              <Menu size={22} />
-            </summary>
+            <summary className="flex cursor-pointer list-none items-center justify-center rounded-md border border-[#E2D6D6] p-2 text-[#7A0008]" aria-label="Open menu"><Menu size={22} /></summary>
             <nav className="absolute right-0 top-12 grid w-64 gap-1 rounded-xl border border-[#E2D6D6] bg-white p-3 shadow-xl" aria-label="Mobile navigation">
-              {navItems.map(([label, href]) => (
-                <a key={label} href={href} className="rounded-md px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold hover:bg-[#F8EEEE] hover:text-[#7A0008]">{label}</a>
-              ))}
+              {navItems.map(([label, href]) => <a key={label} href={href} className="rounded-md px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold hover:bg-[#F8EEEE] hover:text-[#7A0008]">{label}</a>)}
               <a href="#membership" className="mt-2 rounded-md bg-[#7A0008] px-3 py-3 text-center font-[family-name:var(--font-display)] text-sm font-semibold text-white hover:bg-[#450004]">JOIN HR FAMILY</a>
             </nav>
           </details>
