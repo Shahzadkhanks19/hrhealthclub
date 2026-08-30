@@ -14,7 +14,7 @@ import { TransformationsSection } from "./transformations-section";
 
 export function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-clip">
       <SiteHeader />
       <HeroSection />
       <StatsStrip />
