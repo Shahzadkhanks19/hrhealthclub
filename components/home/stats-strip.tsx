@@ -16,21 +16,21 @@ const stats = [
 
 export function StatsStrip() {
   return (
-    <section className="mx-auto -mt-7 w-[min(1180px,calc(100%-2rem))] overflow-hidden rounded-xl border border-[#E2D6D6] bg-white shadow-lg">
-      <div className="grid grid-cols-2 lg:grid-cols-5">
+    <section className="relative z-10 mx-auto -mt-7 w-[min(1180px,calc(100%-2rem))] rounded-xl border border-[#E2D6D6] bg-white shadow-lg">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
         {stats.map(([Icon, value, label], index) => (
           <div
             key={label}
-            className={`flex items-center justify-center gap-3 px-4 py-5 ${
+            className={`flex min-w-0 items-center justify-center gap-3 px-3 py-5 sm:px-4 ${
               index < 4 ? "lg:border-r lg:border-[#E2D6D6]" : ""
             }`}
           >
-            <Icon size={30} className="text-[#7A0008]" />
-            <div>
-              <strong className="block font-[family-name:var(--font-display)] text-2xl leading-none">
+            <Icon size={30} className="shrink-0 text-[#7A0008]" />
+            <div className="min-w-0">
+              <strong className="block whitespace-nowrap font-[family-name:var(--font-display)] text-2xl leading-none">
                 {value}
               </strong>
-              <span className="font-[family-name:var(--font-display)] text-[11px] font-semibold">
+              <span className="block whitespace-nowrap font-[family-name:var(--font-display)] text-[10px] font-semibold sm:text-[11px]">
                 {label}
               </span>
             </div>
