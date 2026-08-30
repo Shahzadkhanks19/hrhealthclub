@@ -15,7 +15,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <SiteHeader />
       <Hero />
       <Stats />
