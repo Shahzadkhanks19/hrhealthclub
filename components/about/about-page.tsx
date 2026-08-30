@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, Dumbbell, HeartPulse, ShieldCheck, Target, Users } from "lucide-react";
+import { ArrowRight, Award, CalendarCheck, Dumbbell, HeartPulse, ShieldCheck, Target, Users } from "lucide-react";
 import { FloatingActions } from "@/components/floating-actions";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { heroImage } from "@/components/home/home-data";
 
 const values = [
   { icon: Target, title: "Purposeful Training", text: "Every session should move you closer to a measurable goal, not just leave you tired." },
@@ -51,7 +52,10 @@ export function AboutPage() {
 
       <section className="mx-auto mb-16 grid w-[min(1280px,calc(100%-2rem))] overflow-hidden rounded-2xl bg-[#111111] text-white lg:grid-cols-2"><div className="p-8 sm:p-12"><Award size={34} className="text-[#E2D6D6]" /><p className="mt-6 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-white/60">Coaching Philosophy</p><h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold uppercase">Your goal deserves a plan.</h2><p className="mt-5 leading-7 text-white/70">Good coaching is not about making every workout harder. It is about making every workout count. We prioritize technique, progression and consistency.</p><Link href="/#coaches" className="mt-7 inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-sm font-bold">MEET OUR COACHES <ArrowRight size={17} /></Link></div><div className="relative min-h-[360px]"><Image src="https://images.unsplash.com/photo-1775993699105-4d18bcac7e54?auto=format&fit=crop&q=82&w=1200" alt="Fitness coaching" fill className="object-cover opacity-80" sizes="(min-width:1024px) 50vw, 100vw" /></div></section>
 
-      <section className="bg-[#F8EEEE] py-14"><div className="mx-auto flex w-[min(1100px,calc(100%-2rem))] flex-col items-center justify-between gap-7 text-center md:flex-row md:text-left"><div><p className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.18em] text-[#7A0008]">Ready when you are</p><h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold uppercase sm:text-4xl">Come experience HR Health Club.</h2></div><Link href="/#free-trial" className="inline-flex items-center gap-2 rounded-md bg-[#7A0008] px-6 py-3.5 font-[family-name:var(--font-display)] text-sm font-bold text-white">BOOK FREE TRIAL <ArrowRight size={17} /></Link></div></section>
+      <section className="mx-auto my-12 grid w-[min(1280px,calc(100%-2rem))] overflow-hidden rounded-2xl bg-[#7A0008] text-white md:grid-cols-[38%_62%]">
+        <div className="relative min-h-56"><Image src={heroImage} alt="Premium training area at HR Health Club" fill className="object-cover" sizes="(min-width: 768px) 480px, 100vw" /><div className="absolute inset-0 bg-[#450004]/25" /></div>
+        <div className="flex flex-col justify-center p-8"><p className="font-[family-name:var(--font-display)] text-lg font-semibold uppercase">READY TO TRANSFORM YOUR LIFE?</p><h2 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-bold uppercase">JOIN HR HEALTH CLUB TODAY!</h2><div className="mt-6 flex flex-wrap gap-3"><Link href="/#contact" className="inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-[#7A0008] transition hover:bg-[#F8EEEE]">JOIN HR FAMILY <ArrowRight size={17} /></Link><a href="https://wa.me/918440070555?text=Hi%20HR%20Health%20Club%2C%20I%20would%20like%20to%20book%20my%20free%20trial." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-md bg-[#450004] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-[#5A0006]"><CalendarCheck size={17} />BOOK FREE TRIAL <ArrowRight size={17} /></a></div></div>
+      </section>
 
       <SiteFooter />
       <FloatingActions />
