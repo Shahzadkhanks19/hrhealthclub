@@ -4,7 +4,9 @@ import {
   ArrowLeft,
   ArrowRight,
   CalendarCheck,
+  CalendarDays,
   Check,
+  CircleHelp,
   Dumbbell,
   Gauge,
   Layers3,
@@ -17,7 +19,7 @@ import { FloatingActions } from "@/components/floating-actions";
 import { Reveal } from "@/components/motion/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import type { ProgramDetail } from "./program-data";
+import { programDetails, type ProgramDetail } from "./program-data";
 
 const pillars = [
   [Dumbbell, "Coach Guided", "Technique support and clear progression in every phase."],
@@ -26,7 +28,22 @@ const pillars = [
   [Trophy, "Trackable", "Review progress consistently and adjust the plan when needed."],
 ] as const;
 
+const firstWeeks = [
+  ["WEEK 01", "Assess & Learn", "Understand your starting point, movement quality, current capacity and the standards for the program."],
+  ["WEEK 02", "Build Rhythm", "Settle into repeatable sessions, learn the key exercises and establish a training rhythm you can sustain."],
+  ["WEEK 03", "Progress Intentionally", "Increase challenge only where technique and recovery support it, with your coach guiding the progression."],
+  ["WEEK 04", "Review & Refine", "Review consistency, performance and execution, then adjust the next phase around what you have actually achieved."],
+] as const;
+
 export function ProgramDetailPage({ program }: { program: ProgramDetail }) {
+  const relatedPrograms = programDetails.filter((item) => item.slug !== program.slug).slice(0, 3);
+  const faqs = [
+    ["Do I need prior gym experience?", "No. The program can be scaled to your current fitness level, and the coach will help you understand technique, training structure and progression."],
+    ["How quickly should I expect progress?", "Progress varies by starting point, consistency, recovery and the goal itself. The focus is on measurable improvement over time rather than promising a fixed result or deadline."],
+    ["Can I combine this with personal training?", `Yes. ${program.coach.name} is the recommended coach for this program, and you can use the coach profile to explore personal-training support around the same goal.`],
+    ["What happens if my goal changes?", "Your training direction can be reviewed and adjusted. The program is a structured starting point, not a rigid template that ignores your progress or changing priorities."],
+  ] as const;
+
   return (
     <main className="overflow-x-clip bg-white text-[#111111]">
       <SiteHeader />
@@ -183,6 +200,83 @@ export function ProgramDetailPage({ program }: { program: ProgramDetail }) {
             </div>
           </article>
         </Reveal>
+      </section>
+
+      <section className="border-y border-[#E2D6D6] bg-white py-20">
+        <div className="mx-auto w-[min(1280px,calc(100%-2rem))]">
+          <Reveal className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+            <div>
+              <span className="flex size-12 items-center justify-center rounded-xl bg-[#F8EEEE] text-[#7A0008]"><CalendarDays size={22} /></span>
+              <p className="mt-5 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-[#7A0008]">Your First Month</p>
+              <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold uppercase leading-tight sm:text-5xl">What the first four weeks can look like.</h2>
+              <p className="mt-5 max-w-xl leading-7 text-[#555555]">The exact pace depends on your starting point, but the early phase follows a clear rhythm: learn, build consistency, progress and review.</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {firstWeeks.map(([week, title, text], index) => (
+                <Reveal key={week} delay={index * 0.05}>
+                  <article className="group h-full rounded-2xl border border-[#E2D6D6] bg-[#FAF8F8] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#7A0008]/25 hover:bg-white hover:shadow-lg">
+                    <span className="font-[family-name:var(--font-display)] text-xs font-bold tracking-[.18em] text-[#7A0008]">{week}</span>
+                    <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-bold uppercase">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#555555]">{text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-[#FAF8F8] py-20">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-2rem))] gap-10 lg:grid-cols-[.8fr_1.2fr]">
+          <Reveal>
+            <span className="flex size-12 items-center justify-center rounded-xl bg-white text-[#7A0008] shadow-sm"><CircleHelp size={22} /></span>
+            <p className="mt-5 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-[#7A0008]">Program FAQ</p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold uppercase leading-tight sm:text-5xl">Questions before you start?</h2>
+            <p className="mt-5 max-w-md leading-7 text-[#555555]">These are the common things members usually want to understand before choosing a training direction.</p>
+          </Reveal>
+          <div className="grid gap-3">
+            {faqs.map(([question, answer], index) => (
+              <Reveal key={question} delay={index * 0.05}>
+                <details className="group rounded-2xl border border-[#E2D6D6] bg-white p-5 open:shadow-lg">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-[family-name:var(--font-display)] text-lg font-bold uppercase marker:hidden">
+                    {question}
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#F8EEEE] text-[#7A0008] transition duration-300 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 border-t border-[#E2D6D6] pt-4 text-sm leading-7 text-[#555555]">{answer}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-[min(1280px,calc(100%-2rem))] py-20">
+        <Reveal className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-[#7A0008]">Keep Exploring</p>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold uppercase sm:text-5xl">Related training paths.</h2>
+            <p className="mt-4 max-w-2xl leading-7 text-[#555555]">Compare nearby goals before deciding which direction fits you best.</p>
+          </div>
+          <Link href="/programs" className="group inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-sm font-bold uppercase text-[#7A0008]">VIEW ALL PROGRAMS <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></Link>
+        </Reveal>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {relatedPrograms.map((item, index) => (
+            <Reveal key={item.slug} delay={index * 0.06}>
+              <Link href={`/programs/${item.slug}`} className="group block h-full overflow-hidden rounded-2xl border border-[#E2D6D6] bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#7A0008]/25 hover:shadow-xl">
+                <div className="relative h-56 overflow-hidden">
+                  <Image src={item.image} alt={item.title} fill unoptimized className="object-cover transition duration-700 group-hover:scale-105" sizes="(min-width:768px) 33vw, 100vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#450004]/85 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 font-[family-name:var(--font-display)] text-[11px] font-bold uppercase tracking-[.14em] text-[#7A0008]">{item.eyebrow}</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4"><h3 className="font-[family-name:var(--font-display)] text-2xl font-bold uppercase">{item.title}</h3><ArrowRight size={19} className="mt-1 shrink-0 text-[#7A0008] transition-transform duration-300 group-hover:translate-x-1" /></div>
+                  <p className="mt-3 text-sm leading-6 text-[#555555]">{item.intro}</p>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-[.14em] text-[#7A0008]">Recommended coach: {item.coach.name}</p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <Reveal className="mx-auto my-12 w-[min(1280px,calc(100%-2rem))]">
