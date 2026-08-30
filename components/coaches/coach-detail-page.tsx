@@ -1,12 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Award, CalendarCheck, Check, Clock3, Dumbbell, ShieldCheck, Target, Trophy } from "lucide-react";
+import { ArrowLeft, ArrowRight, Award, CalendarCheck, Check, Clock3, Dumbbell, ShieldCheck, Target } from "lucide-react";
 import { FloatingActions } from "@/components/floating-actions";
 import { heroImage } from "@/components/home/home-data";
 import { Reveal } from "@/components/motion/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import type { CoachProfile } from "./coach-data";
+
+const coachFeatures = [
+  [Award, "Certified Coach"],
+  [Dumbbell, "Program Focus"],
+  [Target, "Goal Based"],
+  [ShieldCheck, "Safe Technique"],
+] as const;
 
 export function CoachDetailPage({ coach }: { coach: CoachProfile }) {
   return (
@@ -38,7 +45,7 @@ export function CoachDetailPage({ coach }: { coach: CoachProfile }) {
 
       <section className="border-b border-[#E2D6D6] bg-white">
         <div className="mx-auto grid w-[min(1280px,calc(100%-2rem))] sm:grid-cols-2 lg:grid-cols-4">
-          {[[Award,"Certified Coach"],[Dumbbell,"Program Focus"],[Target,"Goal Based"],[ShieldCheck,"Safe Technique"]].map(([Icon,title], index) => <Reveal key={title as string} delay={index*.05}><div className="flex items-center gap-3 border-b border-[#E2D6D6] p-6 sm:border-r lg:border-b-0"><span className="flex size-11 items-center justify-center rounded-xl bg-[#F8EEEE] text-[#7A0008]"><Icon size={20}/></span><span className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">{title as string}</span></div></Reveal>)}
+          {coachFeatures.map(([Icon, title], index) => <Reveal key={title} delay={index*.05}><div className="flex items-center gap-3 border-b border-[#E2D6D6] p-6 sm:border-r lg:border-b-0"><span className="flex size-11 items-center justify-center rounded-xl bg-[#F8EEEE] text-[#7A0008]"><Icon size={20}/></span><span className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">{title}</span></div></Reveal>)}
         </div>
       </section>
 
