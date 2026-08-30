@@ -2,13 +2,13 @@ import Image from "next/image";
 import { ArrowRight, Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
-const links = [["Home", "#home"], ["Gallery", "#gallery"], ["About Us", "#about"], ["Membership", "#membership"], ["Programs", "#programs"], ["Testimonials", "#testimonials"], ["Coaches", "#coaches"], ["Contact", "#contact"]] as const;
+const quickLinks = [["Home", "#home"], ["About Us", "#about"], ["Programs", "#programs"], ["Coaches", "#coaches"], ["Gallery", "#gallery"], ["Membership", "#membership"], ["Testimonials", "#testimonials"], ["Contact", "#contact"]] as const;
 const supportLinks = [["FAQ", "/faq"], ["Privacy Policy", "/privacy-policy"], ["Terms & Conditions", "/terms-and-conditions"], ["Refund Policy", "/refund-policy"], ["Membership Terms", "/membership-terms"]] as const;
 
 export function SiteFooter() {
   return (
     <footer id="contact" className="bg-[#450004] text-white">
-      <div className="mx-auto grid w-[min(1280px,calc(100%-2rem))] gap-8 py-10 md:grid-cols-2 xl:grid-cols-[1.05fr_1.05fr_1.1fr_1.35fr]">
+      <div className="mx-auto grid w-[min(1380px,calc(100%-2rem))] gap-8 py-10 md:grid-cols-2 xl:grid-cols-[1.05fr_1fr_.9fr_1.35fr_1.2fr]">
         <div>
           <div className="inline-flex rounded-lg bg-white px-4 py-3">
             <Image src="/images/brand-logo.svg" width={167} height={48} alt="HR Health Club logo" className="h-11 w-auto" />
@@ -23,12 +23,15 @@ export function SiteFooter() {
 
         <div>
           <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">QUICK LINKS</h3>
-          <nav className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm text-white/80">
-            {links.map(([label, href]) => <a key={label} href={href} className="flex items-center gap-2 transition hover:text-white"><ArrowRight size={12} className="text-[#E2D6D6]" />{label}</a>)}
+          <nav className="mt-4 grid gap-2.5 text-sm text-white/80">
+            {quickLinks.map(([label, href]) => <a key={label} href={href} className="flex items-center gap-2 transition hover:text-white"><ArrowRight size={12} className="text-[#E2D6D6]" />{label}</a>)}
           </nav>
-          <h3 className="mt-6 font-[family-name:var(--font-display)] text-sm font-bold uppercase text-white/90">HELP &amp; LEGAL</h3>
-          <nav className="mt-3 grid gap-2 text-xs text-white/65">
-            {supportLinks.map(([label, href]) => <a key={label} href={href} className="transition hover:text-white">{label}</a>)}
+        </div>
+
+        <div>
+          <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">HELP &amp; LEGAL</h3>
+          <nav className="mt-4 grid gap-2.5 text-sm text-white/80">
+            {supportLinks.map(([label, href]) => <a key={label} href={href} className="flex items-center gap-2 transition hover:text-white"><ArrowRight size={12} className="text-[#E2D6D6]" />{label}</a>)}
           </nav>
         </div>
 
@@ -55,10 +58,7 @@ export function SiteFooter() {
       <div className="border-t border-white/15 bg-[#5A0006]">
         <div className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-center gap-2 py-4 pr-20 text-center text-xs text-white/70 sm:flex-row sm:justify-between sm:text-left lg:pr-24">
           <span>© 2026 HR Health Club. All Rights Reserved.</span>
-          <span className="sm:mr-10 lg:mr-14">
-            Designed &amp; Developed by{" "}
-            <a href="https://builtbyshahzad.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-white transition hover:text-[#E2D6D6] hover:underline">Shahzad Khan</a>
-          </span>
+          <span className="sm:mr-10 lg:mr-14">Designed &amp; Developed by <a href="https://builtbyshahzad.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-white transition hover:text-[#E2D6D6] hover:underline">Shahzad Khan</a></span>
         </div>
       </div>
     </footer>
