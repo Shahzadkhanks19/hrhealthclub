@@ -1,0 +1,1 @@
+HR Health Club logo source is maintained in public/images/hr-logo.svg and public/images/favicon.svg. Raster media files are stored alongside section assets.
