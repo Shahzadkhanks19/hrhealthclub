@@ -24,7 +24,7 @@ export function FloatingActions() {
         <span className={labelClass}>Join HR Health Club</span>
       </a>
 
-      <a href="#free-trial" className={`${actionClass} bg-[#5A0006] hover:bg-[#450004] focus-visible:outline-[#5A0006]`} aria-label="Book a free trial">
+      <a href="#free-trial" className={`${actionClass} bg-white text-[#7A0008] ring-1 ring-[#E2D6D6] hover:bg-[#F8EEEE] focus-visible:outline-[#7A0008]`} aria-label="Book a free trial">
         <CalendarCheck size={20} />
         <span className={labelClass}>Book Free Trial</span>
       </a>
@@ -35,7 +35,7 @@ export function FloatingActions() {
       </a>
 
       {showTop && (
-        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Scroll to top" className="group relative flex size-12 items-center justify-center rounded-full border border-[#E2D6D6] bg-white text-[#7A0008] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#F8EEEE] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A0008]">
+        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Scroll to top" className="group relative flex size-12 items-center justify-center rounded-full border border-[#E2D6D6] bg-[#111111] text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#450004] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A0008]">
           <ArrowUp size={20} />
           <span className={labelClass}>Back to Top</span>
         </button>
