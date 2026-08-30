@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   description:
     "HR Health Club Jodhpur — premium coaching, modern equipment, real transformations and a strong fitness community.",
   icons: {
-    icon: "/images/brand-mark.svg",
-    shortcut: "/images/brand-mark.svg",
-    apple: "/images/brand-mark.svg",
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
   },
 };
 
