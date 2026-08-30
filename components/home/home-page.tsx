@@ -1,3 +1,4 @@
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { CoachesSection } from "./coaches-section";
@@ -26,6 +27,7 @@ export function HomePage() {
       <CtaSection />
       <SiteFooter />
       <QuickActions />
+      <ScrollToTop />
     </main>
   );
 }
