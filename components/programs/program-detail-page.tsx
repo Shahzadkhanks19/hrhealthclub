@@ -46,7 +46,7 @@ export function ProgramDetailPage({ program }: { program: ProgramDetail }) {
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">{program.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="https://wa.me/918440070555?text=Hi%20HR%20Health%20Club%2C%20I%20want%20to%20book%20a%20free%20trial%20for%20one%20of%20your%20training%20programs." target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold text-[#7A0008] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#F8EEEE] hover:shadow-xl active:translate-y-0">BOOK FREE TRIAL <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></a>
-              <Link href="/#contact" className="group inline-flex items-center gap-2 rounded-md border border-white/30 bg-black/10 px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white/10">TALK TO A COACH <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></Link>
+              <Link href={`/coaches/${program.coach.slug}`} className="group inline-flex items-center gap-2 rounded-md border border-white/30 bg-black/10 px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white/10">MEET {program.coach.name} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></Link>
             </div>
           </Reveal>
 
@@ -108,6 +108,34 @@ export function ProgramDetailPage({ program }: { program: ProgramDetail }) {
         </div>
       </section>
 
+      <section className="bg-[#450004] py-14 text-white">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-2rem))] gap-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+          <Reveal>
+            <p className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-white/60">{program.coach.kicker}</p>
+            <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-bold uppercase leading-tight sm:text-5xl">{program.coach.heading}</h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">{program.coach.copy} Pair the program with coach guidance so your technique, progression and training decisions stay aligned with the goal.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href={`/coaches/${program.coach.slug}`} className="group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold text-[#7A0008] transition duration-300 hover:-translate-y-1 hover:bg-[#F8EEEE] hover:shadow-lg">VIEW {program.coach.name}&apos;S PROFILE <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
+              <Link href={`/coaches/${program.coach.slug}#book-pt`} className="group inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold text-white transition duration-300 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10">BOOK WITH {program.coach.name} <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <Link href={`/coaches/${program.coach.slug}`} className="group relative mx-auto block min-h-[360px] max-w-[470px] overflow-hidden rounded-3xl border border-white/15 bg-black/20 shadow-2xl">
+              <Image src={program.coach.image} alt={`${program.coach.name}, ${program.coach.role} at HR Health Club`} fill unoptimized className="object-cover transition duration-700 group-hover:scale-105" sizes="(min-width:1024px) 430px, 100vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#160001] via-transparent to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7">
+                <span className="text-xs font-semibold uppercase tracking-[.18em] text-white/60">Coach for {program.title}</span>
+                <div className="mt-2 flex items-end justify-between gap-4">
+                  <div><h3 className="font-[family-name:var(--font-display)] text-3xl font-bold uppercase">{program.coach.name}</h3><p className="mt-1 text-sm text-white/70">{program.coach.role}</p></div>
+                  <span className="flex size-11 items-center justify-center rounded-full bg-white text-[#7A0008] transition duration-300 group-hover:translate-x-1"><ArrowRight size={19} /></span>
+                </div>
+              </div>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-[#FAF8F8] py-20">
         <div className="mx-auto w-[min(1280px,calc(100%-2rem))]">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -160,7 +188,7 @@ export function ProgramDetailPage({ program }: { program: ProgramDetail }) {
       <Reveal className="mx-auto my-12 w-[min(1280px,calc(100%-2rem))]">
         <section className="group grid overflow-hidden rounded-2xl bg-[#7A0008] text-white shadow-sm transition duration-500 hover:shadow-xl md:grid-cols-[38%_62%]">
           <div className="relative min-h-64 overflow-hidden"><Image src={program.image} alt={`${program.title} consultation`} fill unoptimized className="object-cover transition duration-700 group-hover:scale-105" sizes="(min-width:768px) 480px, 100vw" /><div className="absolute inset-0 bg-[#450004]/35" /></div>
-          <div className="flex flex-col justify-center p-8 sm:p-10"><p className="font-[family-name:var(--font-display)] text-lg font-semibold uppercase">READY TO GET STARTED?</p><h2 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-bold uppercase">START YOUR {program.title} JOURNEY.</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">Meet the team, understand the training approach and see whether this program fits your current goal.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/#contact" className="group/button inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-[#7A0008] transition duration-300 hover:-translate-y-1 hover:bg-[#F8EEEE] hover:shadow-lg active:translate-y-0">TALK TO OUR TEAM <ArrowRight size={17} className="transition-transform group-hover/button:translate-x-1" /></Link><a href="https://wa.me/918440070555?text=Hi%20HR%20Health%20Club%2C%20I%20would%20like%20to%20book%20my%20free%20trial." target="_blank" rel="noreferrer" className="group/button inline-flex items-center gap-2 rounded-md bg-[#450004] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white ring-1 ring-white/25 transition duration-300 hover:-translate-y-1 hover:bg-[#5A0006] hover:shadow-lg active:translate-y-0"><CalendarCheck size={17} />BOOK FREE TRIAL <ArrowRight size={17} className="transition-transform group-hover/button:translate-x-1" /></a></div></div>
+          <div className="flex flex-col justify-center p-8 sm:p-10"><p className="font-[family-name:var(--font-display)] text-lg font-semibold uppercase">READY TO GET STARTED?</p><h2 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-bold uppercase">START YOUR {program.title} JOURNEY.</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">Train with {program.coach.name}, understand the approach and see how coach-led progression can support your current goal.</p><div className="mt-6 flex flex-wrap gap-3"><Link href={`/coaches/${program.coach.slug}`} className="group/button inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-[#7A0008] transition duration-300 hover:-translate-y-1 hover:bg-[#F8EEEE] hover:shadow-lg active:translate-y-0">MEET {program.coach.name} <ArrowRight size={17} className="transition-transform group-hover/button:translate-x-1" /></Link><a href="https://wa.me/918440070555?text=Hi%20HR%20Health%20Club%2C%20I%20would%20like%20to%20book%20my%20free%20trial." target="_blank" rel="noreferrer" className="group/button inline-flex items-center gap-2 rounded-md bg-[#450004] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white ring-1 ring-white/25 transition duration-300 hover:-translate-y-1 hover:bg-[#5A0006] hover:shadow-lg active:translate-y-0"><CalendarCheck size={17} />BOOK FREE TRIAL <ArrowRight size={17} className="transition-transform group-hover/button:translate-x-1" /></a></div></div>
         </section>
       </Reveal>
 
