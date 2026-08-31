@@ -3,79 +3,21 @@ import Link from "next/link";
 import { ArrowRight, Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
-const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Programs", "/programs"], ["Coaches", "/#coaches"], ["Gallery", "/#gallery"], ["Membership", "/#membership"], ["Testimonials", "/#testimonials"], ["Contact", "/#contact"]] as const;
+const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Programs", "/programs"], ["Coaches", "/coaches"], ["Gallery", "/gallery"], ["Membership", "/membership"], ["Transformations", "/transformations"], ["Testimonials", "/#testimonials"], ["Contact", "/#contact"]] as const;
 const supportLinks = [["FAQ", "/faq"], ["Privacy Policy", "/privacy-policy"], ["Terms & Conditions", "/terms-and-conditions"], ["Refund Policy", "/refund-policy"], ["Membership Terms", "/membership-terms"]] as const;
-
 const footerLinkClass = "group relative inline-flex w-fit items-center gap-2 py-0.5 text-white/80 transition duration-300 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:text-white";
 
 export function SiteFooter() {
   return (
     <footer id="contact" className="bg-[#450004] text-white">
       <div className="mx-auto grid w-[min(1380px,calc(100%-2rem))] gap-8 py-10 md:grid-cols-2 xl:grid-cols-[1.05fr_1fr_.9fr_1.35fr_1.2fr]">
-        <div>
-          <Link href="/" aria-label="HR Health Club home" className="group inline-flex rounded-lg bg-white px-4 py-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <Image src="/images/brand-logo.svg" width={167} height={48} alt="HR Health Club logo" className="h-11 w-auto transition duration-300 group-hover:scale-[1.03]" />
-          </Link>
-          <p className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold uppercase leading-7">BUILT BY DISCIPLINE,<br />LED BY COACHES.</p>
-          <div className="mt-4 flex gap-2.5 text-[#E2D6D6]">
-            {[{ label: "Instagram", href: "/#gallery", icon: FaInstagram }, { label: "Facebook", href: "/#contact", icon: FaFacebookF }, { label: "YouTube", href: "/#gallery", icon: FaYoutube }].map(({ label, href, icon: Icon }) => (
-              <Link key={label} href={href} aria-label={label} className="group flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/5 transition duration-300 hover:-translate-y-1 hover:scale-105 hover:border-white/35 hover:bg-white hover:text-[#7A0008] hover:shadow-lg active:translate-y-0">
-                <Icon size={18} />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">QUICK LINKS</h3>
-          <nav className="mt-4 grid gap-2.5 text-sm">
-            {quickLinks.map(([label, href]) => (
-              <Link key={label} href={href} className={footerLinkClass}>
-                <ArrowRight size={12} className="text-[#E2D6D6] transition duration-300 group-hover:translate-x-1 group-hover:text-white" />
-                <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 group-hover:after:scale-x-100">{label}</span>
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div>
-          <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">HELP &amp; LEGAL</h3>
-          <nav className="mt-4 grid gap-2.5 text-sm">
-            {supportLinks.map(([label, href]) => (
-              <Link key={label} href={href} className={footerLinkClass}>
-                <ArrowRight size={12} className="text-[#E2D6D6] transition duration-300 group-hover:translate-x-1 group-hover:text-white" />
-                <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 group-hover:after:scale-x-100">{label}</span>
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div>
-          <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">CONTACT US</h3>
-          <div className="mt-4 grid gap-3 text-sm leading-6 text-white/80">
-            <div className="flex gap-3"><MapPin size={19} className="mt-1 shrink-0 text-[#E2D6D6]" /><span>5th B Rd, near Plant Story Restaurant, Agarwal Ki Bageechi, Sardarpura, Jodhpur, Rajasthan 342001</span></div>
-            <a href="tel:+918440070555" className="group flex w-fit items-center gap-3 transition duration-300 hover:translate-x-1 hover:text-white"><Phone size={18} className="text-[#E2D6D6] transition group-hover:text-white" /><span className="border-b border-transparent transition group-hover:border-white/50">84400 70555</span></a>
-            <a href="mailto:hrhealthclubjodhpur@gmail.com" className="group flex w-fit items-center gap-3 break-all transition duration-300 hover:translate-x-1 hover:text-white"><Mail size={18} className="shrink-0 text-[#E2D6D6] transition group-hover:text-white" /><span className="border-b border-transparent transition group-hover:border-white/50">hrhealthclubjodhpur@gmail.com</span></a>
-            <div className="flex gap-3"><Clock3 size={18} className="mt-1 shrink-0 text-[#E2D6D6]" /><span>Mon - Sat: 5:00 AM - 10:00 PM<br />Sunday: 6:00 AM - 2:00 PM</span></div>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">GET DIRECTIONS</h3>
-          <div className="group mt-4 rounded-xl border border-white/10 bg-[#5A0006] p-5 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-[#650007] hover:shadow-xl">
-            <MapPin size={30} className="text-[#E2D6D6] transition duration-300 group-hover:-translate-y-0.5 group-hover:text-white" />
-            <p className="mt-3 text-sm leading-6 text-white/80">Sardarpura, Jodhpur<br />Rajasthan 342001</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=HR+Health+Club+Jodhpur" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-md bg-[#7A0008] px-4 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#7A0008] hover:shadow-lg active:translate-y-0">OPEN IN GOOGLE MAPS <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" /></a>
-          </div>
-        </div>
+        <div><Link href="/" aria-label="HR Health Club home" className="group inline-flex rounded-lg bg-white px-4 py-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"><Image src="/images/brand-logo.svg" width={167} height={48} alt="HR Health Club logo" className="h-11 w-auto transition duration-300 group-hover:scale-[1.03]" /></Link><p className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold uppercase leading-7">BUILT BY DISCIPLINE,<br />LED BY COACHES.</p><div className="mt-4 flex gap-2.5 text-[#E2D6D6]">{[{ label: "Instagram", href: "/gallery", icon: FaInstagram }, { label: "Facebook", href: "/#contact", icon: FaFacebookF }, { label: "YouTube", href: "/gallery", icon: FaYoutube }].map(({ label, href, icon: Icon }) => <Link key={label} href={href} aria-label={label} className="group flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/5 transition duration-300 hover:-translate-y-1 hover:scale-105 hover:border-white/35 hover:bg-white hover:text-[#7A0008] hover:shadow-lg"><Icon size={18} /></Link>)}</div></div>
+        <div><h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">QUICK LINKS</h3><nav className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2.5 text-sm">{quickLinks.map(([label, href]) => <Link key={label} href={href} className={footerLinkClass}><ArrowRight size={12} className="text-[#E2D6D6] transition duration-300 group-hover:translate-x-1 group-hover:text-white" /><span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform group-hover:after:scale-x-100">{label}</span></Link>)}</nav></div>
+        <div><h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">HELP &amp; LEGAL</h3><nav className="mt-4 grid gap-2.5 text-sm">{supportLinks.map(([label, href]) => <Link key={label} href={href} className={footerLinkClass}><ArrowRight size={12} className="text-[#E2D6D6] transition duration-300 group-hover:translate-x-1 group-hover:text-white" /><span>{label}</span></Link>)}</nav></div>
+        <div><h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">CONTACT US</h3><div className="mt-4 grid gap-3 text-sm leading-6 text-white/80"><div className="flex gap-3"><MapPin size={19} className="mt-1 shrink-0 text-[#E2D6D6]" /><span>5th B Rd, near Plant Story Restaurant, Agarwal Ki Bageechi, Sardarpura, Jodhpur, Rajasthan 342001</span></div><a href="tel:+918440070555" className="group flex w-fit items-center gap-3 transition hover:translate-x-1 hover:text-white"><Phone size={18} />84400 70555</a><a href="mailto:hrhealthclubjodhpur@gmail.com" className="group flex w-fit items-center gap-3 break-all transition hover:translate-x-1 hover:text-white"><Mail size={18} />hrhealthclubjodhpur@gmail.com</a><div className="flex gap-3"><Clock3 size={18} className="mt-1 shrink-0" /><span>Mon - Sat: 5:00 AM - 10:00 PM<br />Sunday: 6:00 AM - 2:00 PM</span></div></div></div>
+        <div><h3 className="font-[family-name:var(--font-display)] text-lg font-bold uppercase">GET DIRECTIONS</h3><div className="group mt-4 rounded-xl border border-white/10 bg-[#5A0006] p-5 transition duration-300 hover:-translate-y-1 hover:shadow-xl"><MapPin size={30} /><p className="mt-3 text-sm leading-6 text-white/80">Sardarpura, Jodhpur<br />Rajasthan 342001</p><a href="https://www.google.com/maps/search/?api=1&query=HR+Health+Club+Jodhpur" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-md bg-[#7A0008] px-4 py-3 font-[family-name:var(--font-display)] text-sm font-semibold transition hover:bg-white hover:text-[#7A0008]">OPEN IN GOOGLE MAPS <ArrowRight size={16} /></a></div></div>
       </div>
-
-      <div className="border-t border-white/15 bg-[#5A0006]">
-        <div className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-center gap-2 py-4 pr-20 text-center text-xs text-white/70 sm:flex-row sm:justify-between sm:text-left lg:pr-24">
-          <span>© 2026 HR Health Club. All Rights Reserved.</span>
-          <span className="sm:mr-10 lg:mr-14">Designed &amp; Developed by <a href="https://builtbyshahzad.vercel.app" target="_blank" rel="noopener noreferrer" className="relative font-semibold text-white after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:text-[#E2D6D6] hover:after:scale-x-100">Shahzad Khan</a></span>
-        </div>
-      </div>
+      <div className="border-t border-white/15 bg-[#5A0006]"><div className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-center gap-2 py-4 pr-20 text-center text-xs text-white/70 sm:flex-row sm:justify-between sm:text-left lg:pr-24"><span>© 2026 HR Health Club. All Rights Reserved.</span><span>Designed &amp; Developed by <a href="https://builtbyshahzad.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-[#E2D6D6]">Shahzad Khan</a></span></div></div>
     </footer>
   );
 }
