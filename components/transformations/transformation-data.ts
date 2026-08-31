@@ -1,0 +1,13 @@
+import { galleryImages, transformations } from "@/components/home/home-data";
+
+export const transformationStories = [
+  { slug: "rohit-16-weeks", name: "Rohit S.", category: "Weight Loss", result: "-14 KG", time: "16 Weeks", image: transformations[0].image, quote: "HR Health Club changed my lifestyle completely. The coaches and environment kept me consistent.", story: "Rohit started with the goal of building consistency and reducing body weight. A coach-led strength and conditioning routine, steady progression and regular check-ins helped him turn training into a sustainable habit." },
+  { slug: "priya-12-weeks", name: "Priya M.", category: "Weight Loss", result: "-10 KG", time: "12 Weeks", image: transformations[1].image, quote: "I feel stronger, healthier and more confident than ever before.", story: "Priya focused on sustainable fat-loss training, movement quality and a routine that fit her schedule. The emphasis stayed on consistency instead of short-term extremes." },
+  { slug: "arjun-20-weeks", name: "Arjun R.", category: "Muscle Gain", result: "+6 KG", time: "20 Weeks", image: transformations[3].image, quote: "From skinny to strong. Gained muscle, strength and the confidence I always wanted.", story: "Arjun followed progressive resistance training with technique coaching and structured overload. The program was adjusted as his strength and work capacity improved." },
+  { slug: "vikas-24-weeks", name: "Vikas P.", category: "Body Recomposition", result: "-18 KG", time: "24 Weeks", image: galleryImages[0], quote: "Patience, hard work and the right coaching made all the difference.", story: "Vikas combined strength training and conditioning with regular progress reviews. The longer timeline allowed gradual improvements while protecting consistency." },
+  { slug: "neha-14-weeks", name: "Neha K.", category: "Female Transformations", result: "-12 KG", time: "14 Weeks", image: galleryImages[2], quote: "It is not just about the body, it is about becoming a better version of yourself.", story: "Neha worked on strength, conditioning and mobility with a routine designed around confidence and sustainable progress." },
+  { slug: "manish-28-weeks", name: "Manish T.", category: "Weight Loss", result: "-20 KG", time: "28 Weeks", image: galleryImages[1], quote: "Best decision of my life. HR Health Club is my second home now.", story: "Manish committed to a long-term training plan built around adherence, gradual intensity increases and coach accountability." },
+] as const;
+
+export type TransformationStory = (typeof transformationStories)[number];
+export function getTransformationBySlug(slug: string) { return transformationStories.find((item) => item.slug === slug); }
