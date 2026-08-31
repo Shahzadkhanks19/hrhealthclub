@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Heart, Play, Quote, Star, Trophy, Users } from "lucide-react";
+import { ArrowRight, CalendarDays, Heart, Play, Quote, Star, Trophy } from "lucide-react";
 import { FaGoogle } from "react-icons/fa";
 import { FloatingActions } from "@/components/floating-actions";
 import { heroImage, transformations } from "@/components/home/home-data";
