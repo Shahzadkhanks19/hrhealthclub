@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.nasm.org" },
       { protocol: "https", hostname: "go.issaonline.com" },
       { protocol: "https", hostname: "commons.wikimedia.org" },
+      { protocol: "https", hostname: "s3.amazonaws.com" },
+      { protocol: "https", hostname: "mwcc.3dcartstores.com" },
     ],
   },
 };
