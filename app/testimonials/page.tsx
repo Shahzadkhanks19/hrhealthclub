@@ -1,0 +1,28 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Quote, Star } from "lucide-react";
+import { FaGoogle } from "react-icons/fa";
+import { FloatingActions } from "@/components/floating-actions";
+import { Reveal } from "@/components/motion/reveal";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+
+export const metadata: Metadata = { title: "Testimonials & Google Reviews | HR Health Club", description: "Read member reviews and testimonials for HR Health Club Jodhpur." };
+const reviews = [
+  ["Lonely Soul","The atmosphere is excellent, and the staff are friendly, professional, and always willing to help. The gym is well-maintained and offers great facilities and equipment."],
+  ["Neetu Kachchhwaha","An excellent gym with a professional and motivating atmosphere. The facility is clean, well-maintained, and equipped with quality machines. The trainers are knowledgeable and supportive."],
+  ["Neeraj Gurjar","Great equipment, super clean, great music, highly affordable, and lovely staff. The atmosphere is welcoming and motivating."],
+  ["Gaurav Solanki","A classy ambience and something new to experience. The trainers are friendly and knowledgeable, and the machines are very good."],
+  ["Baldev Beniwal","HR Health Club is one of the best fitness centers in Jodhpur. Modern equipment, a clean environment, experienced trainers and a motivating atmosphere."],
+  ["Jeevraj Singh","One of the best fitness centers I have visited. Great management, quality equipment and an energetic atmosphere. Highly recommended."],
+] as const;
+
+export default function Page() {
+  return <main className="overflow-x-clip bg-white text-[#111]"><SiteHeader/>
+    <section className="bg-[#7A0008] py-16 text-white"><div className="mx-auto w-[min(1280px,calc(100%-2rem))]"><Reveal className="max-w-3xl"><p className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-white/65">Testimonials</p><h1 className="mt-3 font-[family-name:var(--font-display)] text-6xl font-bold uppercase leading-[.9] sm:text-7xl">What our members <span className="text-white/55">say.</span></h1><p className="mt-6 max-w-xl text-lg leading-8 text-white/80">Real feedback from people who train at HR Health Club.</p></Reveal></div></section>
+    <section className="mx-auto w-[min(1280px,calc(100%-2rem))] py-14"><Reveal className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center"><div><p className="font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[.2em] text-[#7A0008]">Google Reviews</p><h2 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-bold uppercase">Trusted by our community.</h2></div><a href="https://maps.app.goo.gl/Yq61MGA1KXpoK991A" target="_blank" rel="noreferrer" className="inline-flex w-fit items-center gap-3 rounded-xl border border-[#E2D6D6] bg-white px-5 py-4 shadow-sm"><FaGoogle className="text-[#7A0008]"/><div><strong>Google 4.9</strong><div className="mt-1 flex text-amber-500">{Array.from({length:5}).map((_,i)=><Star key={i} size={14} fill="currentColor" strokeWidth={0}/>)}</div></div></a></Reveal><div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{reviews.map(([name,copy],index)=><Reveal key={name} delay={index*.04}><article className="group flex h-full flex-col rounded-xl border border-[#E2D6D6] bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl"><div className="flex items-start justify-between gap-4"><span className="flex size-11 items-center justify-center rounded-full bg-[#7A0008] font-[family-name:var(--font-display)] font-bold text-white">{name.split(" ").map(p=>p[0]).join("").slice(0,2).toUpperCase()}</span><FaGoogle className="text-[#7A0008]"/></div><div className="mt-5 flex text-amber-500">{Array.from({length:5}).map((_,i)=><Star key={i} size={16} fill="currentColor" strokeWidth={0}/>)}</div><Quote className="mt-5 text-[#F8EEEE]" size={34}/><p className="mt-1 flex-1 text-sm leading-7 text-[#555]">“{copy}”</p><strong className="mt-5 font-[family-name:var(--font-display)] text-lg uppercase">{name}</strong><span className="mt-3 flex items-center gap-2 border-t border-[#E2D6D6] pt-4 text-xs text-[#555]"><CheckCircle2 size={15} className="text-[#7A0008]"/>Google Maps review</span></article></Reveal>)}</div></section>
+    <section className="bg-[#FAF8F8] py-14"><div className="mx-auto grid w-[min(1180px,calc(100%-2rem))] grid-cols-2 gap-4 md:grid-cols-4">{[["4.9/5","GOOGLE RATING"],["200+","GOOGLE REVIEWS"],["500+","HAPPY MEMBERS"],["9+","YEARS OF TRUST"]].map(([value,label])=><div key={label} className="rounded-xl border border-[#E2D6D6] bg-white p-6 text-center"><strong className="font-[family-name:var(--font-display)] text-3xl text-[#7A0008]">{value}</strong><span className="mt-1 block text-xs font-bold uppercase text-[#555]">{label}</span></div>)}</div></section>
+    <section className="mx-auto my-14 rounded-xl bg-[#7A0008] p-8 text-center text-white"><h2 className="font-[family-name:var(--font-display)] text-4xl font-bold uppercase">Ready to create your own result?</h2><div className="mt-5 flex flex-wrap justify-center gap-3"><Link href="/free-trial" className="inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold text-[#7A0008]">BOOK FREE TRIAL <ArrowRight size={16}/></Link><Link href="/transformations" className="inline-flex items-center gap-2 rounded-md bg-[#450004] px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold ring-1 ring-white/25">VIEW TRANSFORMATIONS <ArrowRight size={16}/></Link></div></section>
+    <SiteFooter/><FloatingActions/>
+  </main>;
+}
